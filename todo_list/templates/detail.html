@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+  Detail
+{% endblock title %}
+
+{% block content %}
+<button onclick="history.back()" id="back" class="btn btn-dark m-2" type="button">Back</button>
+<div class="m-5 bg-success p-5 text-white rounded">
+    {{query.title}}
+  </div>
+
+
+{% endblock content %}
