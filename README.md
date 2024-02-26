@@ -1,8 +1,9 @@
 # 100-Django-Projects-For-Beginners-to-Boost-your-Django-Learning
 
 
-        To-Do List Application
-        Blogging Platform
+        To-Do List Application ✔
+        Blogging Platform ✔
+        ChatGPT ✔
         Authentication System
         E-commerce Website
         Weather App
