@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<section class="shop-cart spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="shop__cart__table">
+          <table>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order_item in object.items.all  %}
+              <tr>
+                  
+                <td class="cart__product__item">
+                  <img src="{{order_item.item.image.url}}" height="100" alt>
+                  <div class="cart__product__item__title">
+                    <h6>{{order_item.item.title}}</h6>
+                    <div class="rating">
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                      <i class="fa fa-star"></i>
+                    </div>
+                  </div>
+                </td>
+                <td class="cart__price">${{order_item.item.price}}</td>
+                <td class="cart__quantity">
+                  <div id="order_item" data-pk="{{order_item.item.slug}}">
+                    
+                  </div>
+                  <div class="pro-qty">
+                   
+                    <input type="text" value="{{order_item.quantity}}">
+                  </div>
+                </td>
+                <td class="cart__total">$ {{order_item.get_final_price}}</td>
+                <td class="cart__close">
+                  <a href="{% url 'apple:remove-from-cart' order_item.item.slug %}">
+                  <span class="icon_close"></span></a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="cart__btn">
+          <a href="{% url 'apple:index' %}">Continue Shopping</a>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="cart__btn update__btn">
+          <a href="#"><span class="icon_loading"></span>Update cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="discount__content">
+          <ul class="list-group mb-3 z-depth-1">
+           
+          {% if object.coupon %}
+          <li class="list-group-item d-flex justify-content-between bg-light">
+              <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>{{ object.coupon.code }}</small>
+              </div>
+              <span class="text-success">-${{ object.coupon.amount }}</span>
+          </li>
+          {% endif %}
+          <li class="list-group-item d-flex justify-content-between">
+              <span>Total (USD)</span>
+              <strong>${{ object.get_total }}</strong>
+          </li>
+          </ul>
+          <h6>Discount codes</h6>
+          {% if DISPLAY_COUPON_FORM  %}
+          <form action="{% url 'apple:add-coupon' %}" method="post">
+            {% csrf_token %}
+        <div class="input-group">
+            {{ couponform.code }}
+            <div class="input-group-append">
+            <button class="btn btn-secondary btn-md waves-effect m-0" type="submit">Redeem</button>
+            </div>
+        </div>
+          </form>
+          {% endif %}
+
+        </div>
+      </div>
+      <div class="col-lg-4 offset-lg-2">
+        <div class="cart__total__procced">
+          <h6>Cart total</h6>
+          <ul>
+            <li>Subtotal <span>$ 750.0</span></li>
+            <li>Total <span>${{object.get_total}}</span></li>
+          </ul>
+          <a href="{% url 'apple:checkout' %}" class="primary-btn">Proceed to checkout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="instagram">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+        <div class="instagram__item set-bg" data-setbg="{% static 'ecommerce/img/instagram/insta-1.jpg' %}">
+          <div class="instagram__text">
+            <i class="fa fa-instagram"></i>
+            <a href="#">@ ashion_shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+        <div class="instagram__item set-bg" data-setbg="{% static 'ecommerce/img/instagram/insta-2.jpg' %}">
+          <div class="instagram__text">
+            <i class="fa fa-instagram"></i>
+            <a href="#">@ ashion_shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+        <div class="instagram__item set-bg" data-setbg="{% static 'ecommerce/img/instagram/insta-3.jpg' %}">
+          <div class="instagram__text">
+            <i class="fa fa-instagram"></i>
+            <a href="#">@ ashion_shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+        <div class="instagram__item set-bg" data-setbg="{% static 'ecommerce/img/instagram/insta-4.jpg' %}">
+          <div class="instagram__text">
+            <i class="fa fa-instagram"></i>
+            <a href="#">@ ashion_shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+        <div class="instagram__item set-bg" data-setbg="{% static 'ecommerce/img/instagram/insta-5.jpg' %}">
+          <div class="instagram__text">
+            <i class="fa fa-instagram"></i>
+            <a href="#">@ ashion_shop</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 col-sm-4 p-0">
+        <div class="instagram__item set-bg" data-setbg="{% static 'ecommerce/img/instagram/insta-6.jpg' %}">
+          <div class="instagram__text">
+            <i class="fa fa-instagram"></i>
+            <a href="#">@ ashion_shop</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

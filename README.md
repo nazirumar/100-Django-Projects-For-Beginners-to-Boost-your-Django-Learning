@@ -4,8 +4,9 @@
         To-Do List Application ✔
         Blogging Platform ✔
         ChatGPT ✔
-        Authentication System
-        E-commerce Website
+        Authentication System ✔
+        E-commerce Website   
+                https://medium.com/@uminabilah/django-e-commerce-74cbfae18116
         Weather App
         Chat Application
         Bookmark Manager
