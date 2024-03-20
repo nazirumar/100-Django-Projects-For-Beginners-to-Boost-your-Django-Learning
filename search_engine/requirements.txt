@@ -1,0 +1,4 @@
+django
+beautifulsoup
+requests
+psycopg2  # postgres database

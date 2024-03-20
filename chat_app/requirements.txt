@@ -1,0 +1,12 @@
+# This is the version used in this tutorial
+channels==4.0.0
+channels-redis==4.1.0
+daphne==4.0.0
+Django==4.2.7
+djangorestframework
+
+#  react library
+
+react-dom
+react-websocket
+axios

@@ -5,12 +5,11 @@
         Blogging Platform ✔
         ChatGPT ✔
         Authentication System ✔
-        E-commerce Website   
-                https://medium.com/@uminabilah/django-e-commerce-74cbfae18116
+        E-commerce Website   ✔
         Weather App
-        Chat Application
-        Bookmark Manager
-        URL Shortener
+        Chat Application ✔
+        Bookmark Manager ✔
+        URL Shortener ✔
         Recipe Book
         Polling App
         Contact Manager
