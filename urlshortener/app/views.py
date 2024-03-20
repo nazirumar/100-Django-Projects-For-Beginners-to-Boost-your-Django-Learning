@@ -18,6 +18,7 @@ def index(request):
             shorturls = shorturl(original_url)
         shorturls = shorturl('https//')
     context = {
-        'shorturls':shorturls
+        'shorturls':shorturls,
+        'original_url':original_url
     }
     return render(request, 'index.html', context)
