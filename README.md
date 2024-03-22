@@ -10,6 +10,7 @@
         Chat Application ✔
         Bookmark Manager ✔
         URL Shortener ✔
+        Separet Django Setting Product & Development ✔
         Recipe Book
         Polling App
         Contact Manager
